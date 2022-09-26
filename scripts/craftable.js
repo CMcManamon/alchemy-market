@@ -9,7 +9,22 @@ class Craftable {
 
   craftCost() {
     // Sum up the costs of all materials
-    return "unknown";
+    let totalCopper = 0;
+    let totalSilver = 0;
+    let totalGold = 0;
+
+    this.materials.forEach((mat) => {
+      totalCopper += mat[0].price.copper * mat[1];
+      totalSilver += mat[0].price.silver * mat[1];
+      totalGold += mat[0].price.gold * mat[1];
+    });
+
+    totalSilver += Math.floor(totalCopper / 100);
+    totalCopper %= 100;
+    totalGold += Math.floor(totalSilver / 100);
+    totalSilver %= 100;
+
+    return new Currency(totalGold, totalSilver, totalCopper);
   }
 }
 

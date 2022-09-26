@@ -9,3 +9,8 @@ const flaskOfDummy = new Craftable(
   ],
   new Currency(10, 0, 0)
 );
+
+const flaskTable = document.getElementById("flask-table");
+flaskTable.innerHTML += `<tr><td>${flaskOfDummy.name}</td><td>${flaskOfDummy
+  .craftCost()
+  .getString()}</td><td>${flaskOfDummy.marketPrice.getString()}</td></tr>`;
