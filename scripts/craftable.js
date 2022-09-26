@@ -1,5 +1,6 @@
 class Craftable {
-  constructor(materials, marketPrice) {
+  constructor(name, materials, marketPrice) {
+    this.name = name;
     this.materials = materials;
     this.marketPrice = marketPrice;
     // ToDo: image
