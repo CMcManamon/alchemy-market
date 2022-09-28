@@ -1,7 +1,6 @@
 class Material {
-  constructor(name, price) {
+  constructor(name) {
     this.name = name;
-    this.price = price;
     // ToDo: image link
     // ToDo: wowhead id
   }
