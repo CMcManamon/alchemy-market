@@ -6,13 +6,18 @@ class Craftable {
     // ToDo: wowhead id
   }
 
+  // This method will ask the market tool for a price
+  marketPrice() {
+    return PriceChecker.getPrice(this);
+  }
+
   craftCost() {
     // Sum up the costs of all materials
     let totalCost = new Currency(0, 0, 0);
 
-    // This method will ask the market tool for a price
     // mat[0] is the material object and mat[1] is the quantity
     this.materials.forEach((mat) => {
+      // This method will ask the market tool for a price
       //totalCost.add(MarketTool.priceCheck(mat[0].name), mat[1]);
     });
 
