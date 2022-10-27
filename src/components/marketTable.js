@@ -1,26 +1,29 @@
 import React from "react";
 import MarketRow from "./marketRow";
 
-const MarketTable = () => {
-  let itemName = "Flask of Relentless Assault";
-  let matCost = "41.50.00";
-  let sellValue = "47.50.00";
-  let diff = "6.00.00";
+const MarketTable = (props) => {
+  const { items, waiting, loading, error } = props;
+  if (waiting) return "";
+  if (loading) return "Loading...";
+  if (error) return "Error!";
+
+  let rows = [];
+  for (let i in items) {
+    let item = items[i];
+    rows.push(<MarketRow key={item.itemId} item={item} />);
+  }
   return (
     <div id="market-container">
       <table id="market-table">
         <thead>
-          <td>Name</td>
-          <td>Mats Cost</td>
-          <td>Sell Value</td>
-          <td>Diff</td>
+          <tr>
+            <th>Name</th>
+            <th>Mats Cost</th>
+            <th>Sell Value</th>
+            <th>Diff</th>
+          </tr>
         </thead>
-        <MarketRow
-          itemName={itemName}
-          matCost={matCost}
-          sellValue={sellValue}
-          diff={diff}
-        />
+        <tbody>{rows}</tbody>
       </table>
     </div>
   );
