@@ -2,8 +2,8 @@ import React from "react";
 import MarketRow from "./marketRow";
 
 const MarketTable = (props) => {
-  const { items, waiting, loading, error } = props;
-  if (waiting) return "";
+  const { items, loading, error } = props;
+  if (items.length === 0) return "";
   if (loading) return "Loading...";
   if (error) return "Error!";
 
