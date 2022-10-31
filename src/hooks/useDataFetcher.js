@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Flasks } from "../data/flasks";
+import reduceData from "../utils/reduceData";
 
 const useDataFetcher = (server, faction) => {
   const [items, setItems] = useState([]);
