@@ -35,7 +35,8 @@ function reduceData(itemData, craftData) {
 
   item.reagents = reagents;
   item.craftCost = reagentsMarketValue;
-  if (item.amount !== 0) item.craftCost /= item.amount; // Flasks in Wotlk make 2 items in one batch
+  if (item.amount !== 0)
+    item.craftCost = Math.ceil(item.craftCost / item.amount); // Flasks in Wotlk make 2 items in one batch
 
   return item;
 }

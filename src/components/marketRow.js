@@ -14,7 +14,7 @@ const MarketRow = (props) => {
     sellValue = "Unknown";
     diff = "Unknown";
   } else {
-    matCost = "41.50.00";
+    matCost = new Currency(item.craftCost).getString();
     sellValue = new Currency(item.marketValue).getString();
     diff = "6.00.00";
   }
