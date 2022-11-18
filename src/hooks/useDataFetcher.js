@@ -1,25 +1,22 @@
 import { useState, useEffect } from "react";
-import { Flasks } from "../data/flasks";
 import reduceData from "../utils/reduceData";
 
-const useDataFetcher = (server, faction) => {
+const NEXUS_API_ITEMS = "https://api.nexushub.co/wow-classic/v1/items/";
+const NEXUS_API_CRAFTING = "https://api.nexushub.co/wow-classic/v1/crafting/";
+
+const useDataFetcher = (server, faction, itemGroup) => {
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
 
   useEffect(() => {
-    if (server === null || faction === null) return;
     setItems([]);
+    if (server === null || faction === null) return;
     setLoading(true);
-    for (let flask in Flasks) {
-      fetch(
-        "https://api.nexushub.co/wow-classic/v1/items/" +
-          server +
-          "-" +
-          faction +
-          "/" +
-          Flasks[flask]
-      )
+
+    async function getFromNexus(URL, server, faction, item) {
+      // Get Item Data
+      return fetch(URL + server + "-" + faction + "/" + item)
         .then((response) => {
           if (response.ok) {
             return response.json();
@@ -27,7 +24,7 @@ const useDataFetcher = (server, faction) => {
           throw response;
         })
         .then((data) => {
-          setItems((prevItems) => [...prevItems, data]);
+          return data;
         })
         .catch((error) => {
           console.error("Error fetching data: ", error);
@@ -37,8 +34,31 @@ const useDataFetcher = (server, faction) => {
           setLoading(false);
         });
     }
-  }, [server, faction]);
 
+    async function getData() {
+      for (let item in itemGroup) {
+        const fetchedItem = await getFromNexus(
+          NEXUS_API_ITEMS,
+          server,
+          faction,
+          itemGroup[item]
+        );
+        const fetchedCraft = await getFromNexus(
+          NEXUS_API_CRAFTING,
+          server,
+          faction,
+          itemGroup[item]
+        );
+        if (fetchedItem != null && fetchedCraft != null) {
+          let combinedObj = reduceData(fetchedItem, fetchedCraft);
+          setItems((prevItems) => [...prevItems, combinedObj]);
+        }
+      }
+    }
+    getData();
+  }, [server, faction, itemGroup]);
+
+  //console.log("Items fetched: ", items);
   return { items, loading, error };
 };
 export default useDataFetcher;

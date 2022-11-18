@@ -3,7 +3,7 @@ import MarketRow from "./marketRow";
 
 const MarketTable = (props) => {
   const { items, loading, error } = props;
-  if (items.length === 0) return "";
+  if (items === undefined || items.length === 0) return "";
   if (loading) return "Loading...";
   if (error) return "Error!";
 

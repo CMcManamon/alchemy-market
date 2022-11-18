@@ -9,13 +9,13 @@ const MarketRow = (props) => {
   if (item === null || item.name === null) return ""; // Don't add a table row
 
   itemName = item.name;
-  if (item.stats.current === null) {
+  if (item.marketValue === null) {
     matCost = "Unknown";
     sellValue = "Unknown";
     diff = "Unknown";
   } else {
     matCost = "41.50.00";
-    sellValue = new Currency(item.stats.current.marketValue).getString();
+    sellValue = new Currency(item.marketValue).getString();
     diff = "6.00.00";
   }
 

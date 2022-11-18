@@ -6,6 +6,7 @@
  */
 
 function reduceData(itemData, craftData) {
+  if (itemData === null || craftData === null) return {};
   let item = {
     itemId: itemData.itemId,
     name: itemData.name,
