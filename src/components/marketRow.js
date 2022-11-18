@@ -14,9 +14,12 @@ const MarketRow = (props) => {
     sellValue = "Unknown";
     diff = "Unknown";
   } else {
-    matCost = new Currency(item.craftCost).getString();
-    sellValue = new Currency(item.marketValue).getString();
-    diff = "6.00.00";
+    // ToDo: pass Currency objects to a Currency component for display
+    matCost = new Currency(item.craftCost);
+    sellValue = new Currency(item.marketValue);
+    diff = Currency.subtract(sellValue, matCost).getString();
+    matCost = matCost.getString(); // convert from Currency obj to string
+    sellValue = sellValue.getString();
   }
 
   return (
