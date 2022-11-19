@@ -11,11 +11,10 @@ const Header = (props) => {
 
   return (
     <div>
-      This tool will help you choose the most profitable alchemy crafts in Wrath
-      of the Lich King.
+      Make that money money in WotLK.
       <br />
       <form onSubmit={handleSubmit}>
-        <label htmlFor="server-select">Choose your server:</label>
+        <label htmlFor="server-select">Choose your server: </label>
         <select
           name="server-select"
           id="server-select"
@@ -36,17 +35,17 @@ const Header = (props) => {
         <input type="radio" id="horde" value="horde" name="faction" />
         <label htmlFor="horde">Horde</label>
         <br />
-        <br />
-        <br />
         <input type="checkbox" id="ah-fees" name="ah-fees" defaultChecked />
         <label htmlFor="ah-fees">AH fees</label>
-        <br />
         <div className="slider-container">
           <br />
-          Proc Chance 0% - 50%
+          Proc Chance - 0%
+          <br /> 0%
+          <input type="range" min="0" max="6" defaultValue="3" />
+          30%
           <br />
-          <input type="range" min="0" max="10" defaultValue="5" />
           <button>Scan</button>
+          <br />
         </div>
       </form>
     </div>

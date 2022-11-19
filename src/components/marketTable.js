@@ -17,10 +17,10 @@ const MarketTable = (props) => {
       <table id="market-table">
         <thead>
           <tr>
-            <th>Name</th>
-            <th>Mats Cost</th>
-            <th>Sell Value</th>
-            <th>Diff</th>
+            <th>Item</th>
+            <th>Crafting Cost (1)</th>
+            <th>Sell Value (1)</th>
+            <th>Profit/Loss</th>
           </tr>
         </thead>
         <tbody>{rows}</tbody>
