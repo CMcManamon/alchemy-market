@@ -1,4 +1,5 @@
 import React from "react";
+import ServerList from "./serverList";
 
 const Header = (props) => {
   const clickHandler = props.fetchHandler;
@@ -15,14 +16,12 @@ const Header = (props) => {
       <br />
       <form onSubmit={handleSubmit}>
         <label htmlFor="server-select">Choose your server: </label>
-        <select
+        <ServerList
           name="server-select"
           id="server-select"
-          defaultValue={`benediction`}
-        >
-          <option value="empty"></option>
-          <option value="benediction">Benediction</option>
-        </select>
+          defaultValue="benediction"
+        ></ServerList>
+
         <br />
         <input
           type="radio"
