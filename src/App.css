@@ -44,3 +44,11 @@
 .currency.negative {
   color: red;
 }
+
+.total-value-note {
+  font-size: 12px;
+}
+
+.item-icon {
+  height: 24px;
+}

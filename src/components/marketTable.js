@@ -18,13 +18,19 @@ const MarketTable = (props) => {
         <thead>
           <tr>
             <th>Item</th>
-            <th>Crafting Cost (1)</th>
             <th>Sell Value (1)</th>
+            <th>Craft Cost</th>
+            <th>Est. Total Value*</th>
             <th>Profit/Loss</th>
           </tr>
         </thead>
         <tbody>{rows}</tbody>
       </table>
+      <br />
+      <span className="total-value-note">
+        * Flasks produce 2 items per craft. Value incorporates proc chance and
+        AH fees if selected.
+      </span>
     </div>
   );
 };
