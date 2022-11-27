@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import ServerList from "./serverList";
 
 const Header = (props) => {
   const clickHandler = props.fetchHandler;
   const checkFeeHandler = props.feeHandler;
   const slideProcRateHandler = props.procRateHandler;
+
+  const DEFAULT_PROC_CHANCE = 15;
+
+  const [procChance, setProcChance] = useState(DEFAULT_PROC_CHANCE);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -17,7 +21,9 @@ const Header = (props) => {
   };
 
   const handleProcRateChanged = (event) => {
-    slideProcRateHandler(event.target.value * 0.05); // 5% per tick
+    let currValue = event.target.value;
+    setProcChance(currValue * 5);
+    slideProcRateHandler(currValue * 0.05); // 5% per tick
   };
 
   return (
@@ -54,8 +60,8 @@ const Header = (props) => {
         <label htmlFor="ah-fees">AH fees</label>
         <div className="slider-container">
           <br />
-          Proc Chance - 0%
-          <br /> 0%
+          Proc Chance - {procChance}%
+          <br /> (No Mastery) 0%
           <input
             type="range"
             min="0"
@@ -63,7 +69,7 @@ const Header = (props) => {
             defaultValue="3"
             onChange={handleProcRateChanged}
           />
-          30%
+          30% (Feeling Lucky)
           <br />
           <button>Scan</button>
           <br />
