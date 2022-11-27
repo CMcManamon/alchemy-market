@@ -2,9 +2,10 @@ import React from "react";
 import Currency from "../objects/currency";
 
 const MarketRow = (props) => {
-  const { item } = props; // json object (craftable)
+  const { item, fee, procRate } = props;
 
   let itemName, matCost, sellValue, totalSellValue, diff, valueStyle, itemImg;
+  let feeModifier = fee ? 0.95 : 1;
   // Null value checks
   if (item === null || item.name === null) return ""; // Don't add a table row
 
@@ -20,7 +21,8 @@ const MarketRow = (props) => {
     // ToDo: pass Currency objects to a Currency component for display
     matCost = new Currency(item.craftCost);
     sellValue = new Currency(item.marketValue);
-    totalSellValue = new Currency(Math.ceil(item.marketValue * item.amount));
+    totalSellValue = item.marketValue * feeModifier * (item.amount + procRate);
+    totalSellValue = new Currency(Math.ceil(totalSellValue));
     diff = Currency.subtract(totalSellValue, matCost);
     valueStyle = diff.value < 0 ? "negative" : "positive";
     matCost = matCost.getString(); // convert from Currency obj to string

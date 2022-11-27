@@ -2,7 +2,7 @@ import React from "react";
 import MarketRow from "./marketRow";
 
 const MarketTable = (props) => {
-  const { items, loading, error } = props;
+  const { items, loading, error, fee, procRate } = props;
   if (items === undefined || items.length === 0) return "";
   if (loading) return "Loading...";
   if (error) return "Error!";
@@ -10,7 +10,9 @@ const MarketTable = (props) => {
   let rows = [];
   for (let i in items) {
     let item = items[i];
-    rows.push(<MarketRow key={item.itemId} item={item} />);
+    rows.push(
+      <MarketRow key={item.itemId} item={item} fee={fee} procRate={procRate} />
+    );
   }
   return (
     <div id="market-container">

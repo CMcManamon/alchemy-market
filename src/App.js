@@ -8,6 +8,8 @@ import { Flasks } from "./data/flasks";
 function App() {
   const [server, setServer] = useState(null);
   const [faction, setFaction] = useState(null);
+  const [fee, setFee] = useState(true);
+  const [procRate, setProcRate] = useState(0); // ToDo: change default to 15%
 
   // Fetch data for Flasks
   const flaskData = useDataFetcher(server, faction, Flasks);
@@ -24,12 +26,30 @@ function App() {
     setFaction(faction);
   };
 
+  const handleFee = (fee) => {
+    setFee(fee);
+  };
+
+  const handleProcRate = (procRate) => {
+    setProcRate(procRate);
+  };
+
   return (
     <div className="App">
       <header className="App-header">
-        <Header fetchHandler={handleFetch} />
+        <Header
+          fetchHandler={handleFetch}
+          feeHandler={handleFee}
+          procRateHandler={handleProcRate}
+        />
         {/* ToDo: component containing multiple market tables*/}
-        <MarketTable items={flasks} loading={loading} error={error} />
+        <MarketTable
+          items={flasks}
+          loading={loading}
+          error={error}
+          fee={fee}
+          procRate={procRate}
+        />
       </header>
     </div>
   );
