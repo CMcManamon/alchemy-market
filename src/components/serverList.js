@@ -6,7 +6,11 @@ const ServerList = (props) => {
 
   let serversList = [];
   Servers.forEach((server) => {
-    let serverOption = <option value={server.slug}>{server.name}</option>;
+    let serverOption = (
+      <option key={server.slug + "-" + server.region} value={server.slug}>
+        {server.name}
+      </option>
+    );
     serversList.push(serverOption);
   });
 

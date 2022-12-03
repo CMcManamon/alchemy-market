@@ -4,7 +4,9 @@ import Header from "./components/header";
 import MarketTable from "./components/marketTable";
 import useDataFetcher from "./hooks/useDataFetcher";
 import { Flasks } from "./data/flasks";
+import { Elixirs } from "./data/elixirs";
 
+let allConsumeables = [...Flasks, ...Elixirs];
 function App() {
   const [server, setServer] = useState(null);
   const [faction, setFaction] = useState(null);
@@ -12,7 +14,7 @@ function App() {
   const [procRate, setProcRate] = useState(0); // ToDo: change default to 15%
 
   // Fetch data for Flasks
-  const flaskData = useDataFetcher(server, faction, Flasks);
+  const flaskData = useDataFetcher(server, faction, allConsumeables);
   //console.log("flaskData: ", flaskData);
   //console.log("flaskData.items: ", flaskData.items);
   const flasks = flaskData.items;
