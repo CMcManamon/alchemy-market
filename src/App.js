@@ -11,7 +11,7 @@ function App() {
   const [server, setServer] = useState(null);
   const [faction, setFaction] = useState(null);
   const [fee, setFee] = useState(true);
-  const [procRate, setProcRate] = useState(0); // ToDo: change default to 15%
+  const [procRate, setProcRate] = useState(0.15); // ToDo: change default to 15%
 
   // Fetch data for Flasks
   const flaskData = useDataFetcher(server, faction, allConsumeables);
