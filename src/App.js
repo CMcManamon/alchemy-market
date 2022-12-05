@@ -5,18 +5,17 @@ import MarketTable from "./components/marketTable";
 import useDataFetcher from "./hooks/useDataFetcher";
 import { Flasks } from "./data/flasks";
 import { Elixirs } from "./data/elixirs";
+import { Potions } from "./data/potions";
 
-let allConsumeables = [...Flasks, ...Elixirs];
+let allConsumeables = [...Flasks, ...Elixirs, ...Potions];
 function App() {
   const [server, setServer] = useState(null);
   const [faction, setFaction] = useState(null);
   const [fee, setFee] = useState(true);
-  const [procRate, setProcRate] = useState(0.15); // ToDo: change default to 15%
+  const [procRate, setProcRate] = useState(0.15); // Default 15% proc rate
 
-  // Fetch data for Flasks
+  // Fetch data for Consumeables
   const flaskData = useDataFetcher(server, faction, allConsumeables);
-  //console.log("flaskData: ", flaskData);
-  //console.log("flaskData.items: ", flaskData.items);
   const flasks = flaskData.items;
   const loading = flaskData.loading;
   const error = flaskData.error;
