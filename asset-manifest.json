@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/alchemy-market/static/css/main.23207506.css",
-    "main.js": "/alchemy-market/static/js/main.7bc0247b.js",
+    "main.js": "/alchemy-market/static/js/main.75949754.js",
     "static/js/787.829a21b3.chunk.js": "/alchemy-market/static/js/787.829a21b3.chunk.js",
     "index.html": "/alchemy-market/index.html",
     "main.23207506.css.map": "/alchemy-market/static/css/main.23207506.css.map",
-    "main.7bc0247b.js.map": "/alchemy-market/static/js/main.7bc0247b.js.map",
+    "main.75949754.js.map": "/alchemy-market/static/js/main.75949754.js.map",
     "787.829a21b3.chunk.js.map": "/alchemy-market/static/js/787.829a21b3.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.23207506.css",
-    "static/js/main.7bc0247b.js"
+    "static/js/main.75949754.js"
   ]
 }
