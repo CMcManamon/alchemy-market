@@ -20,7 +20,7 @@ const MarketTable = (props) => {
         <thead>
           <tr>
             <th>Item</th>
-            <th>Sell Value (1)</th>
+            <th>List Price (1)</th>
             <th>Craft Cost</th>
             <th>Est. Total Value*</th>
             <th>Profit/Loss</th>
