@@ -33,57 +33,61 @@ const Header = (props) => {
       <br />{" "}
       <form onSubmit={handleSubmit}>
         <table className="header-table">
-          <tr>
-            <td className="server-faction-scan-container">
-              <label htmlFor="server-select">Server: </label>
-              <ServerList
-                name="server-select"
-                id="server-select"
-                defaultServer="benediction"
-              ></ServerList>
+          <tbody>
+            <tr>
+              <td className="server-faction-scan-container">
+                <label htmlFor="server-select">Server: </label>
+                <ServerList
+                  name="server-select"
+                  id="server-select"
+                  defaultServer="benediction"
+                ></ServerList>
 
-              <br />
-              <label htmlFor="faction">Faction: </label>
-              <input
-                type="radio"
-                id="alliance"
-                value="alliance"
-                name="faction"
-                defaultChecked
-              />
-              <label htmlFor="alliance">Alliance</label>
-              <input type="radio" id="horde" value="horde" name="faction" />
-              <label htmlFor="horde">Horde</label>
-              <br />
-              <div className="scan-button-container">
-                <button>Scan</button>
-              </div>
-            </td>
-            <td className="fees-checkbox">
-              <label htmlFor="ah-fees">AH Fees</label>
-              <input
-                type="checkbox"
-                id="ah-fees"
-                name="ah-fees"
-                defaultChecked
-                onChange={handleFeeChanged}
-              />
-
-              <div className="slider-container">
-                <label htmlFor="procSlider">Proc Chance - {procChance}%</label>
                 <br />
+                <label htmlFor="faction">Faction: </label>
                 <input
-                  type="range"
-                  name="procSlider"
-                  min="0"
-                  max="6"
-                  defaultValue="3"
-                  onChange={handleProcRateChanged}
+                  type="radio"
+                  id="alliance"
+                  value="alliance"
+                  name="faction"
+                  defaultChecked
                 />
+                <label htmlFor="alliance">Alliance</label>
+                <input type="radio" id="horde" value="horde" name="faction" />
+                <label htmlFor="horde">Horde</label>
                 <br />
-              </div>
-            </td>
-          </tr>
+                <div className="scan-button-container">
+                  <button>Scan</button>
+                </div>
+              </td>
+              <td className="fees-checkbox">
+                <label htmlFor="ah-fees">AH Fees</label>
+                <input
+                  type="checkbox"
+                  id="ah-fees"
+                  name="ah-fees"
+                  defaultChecked
+                  onChange={handleFeeChanged}
+                />
+
+                <div className="slider-container">
+                  <label htmlFor="procSlider">
+                    Proc Chance - {procChance}%
+                  </label>
+                  <br />
+                  <input
+                    type="range"
+                    name="procSlider"
+                    min="0"
+                    max="6"
+                    defaultValue="3"
+                    onChange={handleProcRateChanged}
+                  />
+                  <br />
+                </div>
+              </td>
+            </tr>
+          </tbody>
         </table>
       </form>
     </div>
