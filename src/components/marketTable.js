@@ -15,8 +15,8 @@ const MarketTable = (props) => {
     );
   }
   return (
-    <div id="market-container">
-      <table id="market-table">
+    <div className="market-container">
+      <table className="market-table">
         <thead>
           <tr>
             <th>Item</th>
