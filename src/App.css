@@ -13,12 +13,8 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
 .currency.positive {
-  color: green;
+  color: rgb(0, 180, 0);
 }
 
 .currency.negative {
