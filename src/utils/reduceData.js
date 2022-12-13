@@ -6,7 +6,8 @@
  */
 
 function reduceData(itemData, craftData) {
-  if (itemData === null || craftData === null) return {};
+  if (itemData === null || craftData === null) return null;
+  if (itemData.stats.current === null) return defaultData(itemData);
   let item = {
     itemId: itemData.itemId,
     name: itemData.name,
@@ -39,6 +40,17 @@ function reduceData(itemData, craftData) {
 }
 export default reduceData;
 
+function defaultData(itemData) {
+  let item = {
+    itemId: itemData.itemId,
+    name: itemData.name,
+    icon: itemData.icon,
+    marketValue: null,
+    amount: null,
+  };
+
+  return item;
+}
 /*
 var testObjItem = {
   server: "benediction-alliance",

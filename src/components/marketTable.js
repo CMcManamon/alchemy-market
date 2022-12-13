@@ -15,14 +15,14 @@ const MarketTable = (props) => {
     );
   }
   return (
-    <div id="market-container">
-      <table id="market-table">
+    <div className="market-container">
+      <table className="market-table">
         <thead>
           <tr>
             <th>Item</th>
-            <th>List Price (1)</th>
+            <th>List Price</th>
             <th>Craft Cost</th>
-            <th>Est. Total Value*</th>
+            <th>Est. Value*</th>
             <th>Profit/Loss</th>
           </tr>
         </thead>
