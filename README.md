@@ -1,3 +1,11 @@
+# Alchemy Price Checking Tool for WoW:WotLK
+
+[Click Here](https://leafwindstudio.com/alchemy-market) for a live demo.
+
+This tool for World of Warcraft's Wrath of the Lich King expansion helps you find the most profitable alchemy items to craft and sell, or determine whether it is cheaper to buy a potion or buy the materials and craft it yourself.
+
+The user selects their server and faction. The app connects with the NexusHub.co API and retrieves recent market data for each alchemy item and its crafting materials. It displays the item's base sell value, material cost, and estimated total value after random chance to proc extra items. The user can select a proc rate between 0% (no mastery) to 30% (very lucky). Estimated value also factors in the 5% cut taken by the auction house unless the user deselects this choice (and opts to sell their items manually).
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
