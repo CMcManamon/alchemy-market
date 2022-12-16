@@ -40,7 +40,6 @@ const Header = (props) => {
                 <ServerList
                   name="server-select"
                   id="server-select"
-                  defaultServer="benediction"
                 ></ServerList>
 
                 <br />

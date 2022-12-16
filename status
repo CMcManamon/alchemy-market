@@ -1,0 +1,213 @@
+[33mcommit db94780f7422862e49db17d1c96bbfa3d55e2d56[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Merge: b202d99 adc259b
+Author: CMcManamon <66437184+CMcManamon@users.noreply.github.com>
+Date:   Tue Dec 13 12:58:15 2022 -0800
+
+    Merge pull request #1 from CMcManamon/css-makeover
+    
+    CSS makeover
+
+[33mcommit adc259b1b26cc340b2b22e85e1b176f3a58231da[m[33m ([m[1;31morigin/css-makeover[m[33m, [m[1;32mcss-makeover[m[33m)[m
+Author: CMcManamon <66437184+CMcManamon@users.noreply.github.com>
+Date:   Mon Dec 12 17:24:23 2022 -0800
+
+    Update readme file
+
+[33mcommit edbbf2985fe8e2b42ea54eb4001af2f5ffae7e49[m
+Author: CMcManamon <66437184+CMcManamon@users.noreply.github.com>
+Date:   Sat Dec 10 01:18:37 2022 -0800
+
+    Fix error when no market data found
+
+[33mcommit ed17b42f5390354444dca54f4f0622e7845c620f[m
+Author: CMcManamon <66437184+CMcManamon@users.noreply.github.com>
+Date:   Sat Dec 10 00:57:55 2022 -0800
+
+    Add table body and change thead name
+
+[33mcommit c50375edc6aa630db8ba1922425ba49db1ab206e[m
+Author: CMcManamon <66437184+CMcManamon@users.noreply.github.com>
+Date:   Sat Dec 10 00:51:45 2022 -0800
+
+    Add favicon and meta data
+
+[33mcommit 47d45d5e5f767b75ae9fd617ada6d184d67763d3[m
+Author: CMcManamon <66437184+CMcManamon@users.noreply.github.com>
+Date:   Sat Dec 10 00:14:54 2022 -0800
+
+    Brighten green text color
+
+[33mcommit 384aa453d46ed1d456de6d25f9f0976a1ecb7a8c[m
+Author: CMcManamon <66437184+CMcManamon@users.noreply.github.com>
+Date:   Fri Dec 9 23:09:51 2022 -0800
+
+    Redesign header
+    Divide server/faction/scan and fees/proc into two columns of a table.
+    Add page title and subtitle.
+
+[33mcommit 336e3eb9fc88ef5dd24d40a3f4269ddc935ba355[m
+Author: CMcManamon <66437184+CMcManamon@users.noreply.github.com>
+Date:   Fri Dec 9 20:15:05 2022 -0800
+
+    Modify table styling in App.css
+
+[33mcommit b202d9918f07e53e04107c830f2ce0e5bbc8417d[m
+Author: CMcManamon <66437184+CMcManamon@users.noreply.github.com>
+Date:   Mon Dec 5 00:58:21 2022 -0800
+
+    Rename sell value to list price
+
+[33mcommit a452361332f63552a882f0daf5c76b4e172a1d86[m
+Author: CMcManamon <66437184+CMcManamon@users.noreply.github.com>
+Date:   Mon Dec 5 00:52:28 2022 -0800
+
+    Add potions to scan list
+    Create potions.js with item IDs for potions (excluded: absorb potions and low level potions).
+
+[33mcommit 00084541a4ce32c62a9f06ed269ecd21522377ab[m
+Author: CMcManamon <66437184+CMcManamon@users.noreply.github.com>
+Date:   Sat Dec 3 14:08:10 2022 -0800
+
+    Fix default proc rate from 0 to 0.15
+
+[33mcommit cc919e84cfbed6e5da9d22e329b6325e81c289dd[m
+Author: CMcManamon <66437184+CMcManamon@users.noreply.github.com>
+Date:   Sat Dec 3 00:06:58 2022 -0800
+
+    Setup gh-pages
+
+[33mcommit b0511889ce0c4ca40e9f46bc0f25751827572e49[m
+Author: CMcManamon <66437184+CMcManamon@users.noreply.github.com>
+Date:   Fri Dec 2 23:36:46 2022 -0800
+
+    Add elixirs to fetch table
+    
+    Create elixirs.js containing item IDs for all elixirs. Combine flask and elixir data to retrieve all consumeables.
+    Fix minor bug: add a unique key to each option in server dropdown menu.
+
+[33mcommit 16b4670d385ac3bc5cb8b4e2523d701d5b37a4bc[m
+Author: CMcManamon <66437184+CMcManamon@users.noreply.github.com>
+Date:   Sat Nov 26 21:51:08 2022 -0800
+
+    Fix display of proc chance
+    Update proc chance in header.js when proc chance slider is moved by user
+
+[33mcommit 75c9f6b7b7d1a72f1c3404677ebb416279b1162f[m
+Author: CMcManamon <66437184+CMcManamon@users.noreply.github.com>
+Date:   Sat Nov 26 21:18:50 2022 -0800
+
+    Add functionality to fee checkbox
+    
+    Checking or unchecking the fees checkbox causes the estimated total value and Avg profit/loss to be updated
+    Attached functionality of slider value for proc chance to update total and profit/loss values.
+
+[33mcommit 39977fed41a0df1f238c6e6bfb3e1becc31342da[m
+Author: CMcManamon <66437184+CMcManamon@users.noreply.github.com>
+Date:   Fri Nov 25 22:22:46 2022 -0800
+
+    Add all servers to dropdown menu.
+    Create servers.js containing array of servers. Create ServerList component in serverList.js
+
+[33mcommit 7bf3e2c94037e5c5354011d222125005586f797a[m
+Author: CMcManamon <66437184+CMcManamon@users.noreply.github.com>
+Date:   Fri Nov 25 22:15:34 2022 -0800
+
+    Modify display of MarketRow
+    
+    Add a new column to MarketRow, separating sell value for one item from estimated total value.
+    Change display format of currency from "XX.XX.XX" to "XXg XXs XXc".
+    Return original crafting cost in reduceData object and instead apply product quantity to total value formula in marketRow.
+    Display icon in front of each item.
+
+[33mcommit 6ff7c23de5dfd642bc9897f43283babefc7a8dea[m
+Author: CMcManamon <66437184+CMcManamon@users.noreply.github.com>
+Date:   Fri Nov 18 20:54:59 2022 -0800
+
+    Edit text labels
+
+[33mcommit 4ab269b0f4eb1eba76e9afde5cb3897f5773dd55[m
+Author: CMcManamon <66437184+CMcManamon@users.noreply.github.com>
+Date:   Fri Nov 18 16:03:04 2022 -0800
+
+    Color profit values red/green
+
+[33mcommit 4b0d0b697c6ef9c490acddb5d93097b40f274532[m
+Author: CMcManamon <66437184+CMcManamon@users.noreply.github.com>
+Date:   Fri Nov 18 15:24:34 2022 -0800
+
+    Display price difference
+    
+    Create Currency.subtract() to subtract two Currency objects.
+    Fix display bug in Currency.getString() for negative values. Only show negative sign before gold value.
+
+[33mcommit ecb53d2d26ad1bba471cd2e14e7d5592321be70e[m
+Author: CMcManamon <66437184+CMcManamon@users.noreply.github.com>
+Date:   Fri Nov 18 15:02:15 2022 -0800
+
+    Display crafting cost
+    
+    Display crafting cost in market row. Apply ceiling to crafting cost when division results in float value
+
+[33mcommit aef4a8bb60c5664f03b91be45450914e80533028[m
+Author: CMcManamon <66437184+CMcManamon@users.noreply.github.com>
+Date:   Fri Nov 18 12:00:07 2022 -0800
+
+    Retrieve crafting data from API
+    
+    Data fetcher is modified to retrieve both item data and crafting data for an item and combine them into a single object using reduceData.js utility.
+
+[33mcommit 101823f5d56777471d38c13a5b7a1b9249d00db7[m
+Author: CMcManamon <66437184+CMcManamon@users.noreply.github.com>
+Date:   Mon Oct 31 12:05:27 2022 -0700
+
+    Create reduceData helper function
+    
+    reduceData takes item data and crafting data to return a single object with required data
+
+[33mcommit d33b9f68a930804aace888fe0ee52c4109f9234f[m
+Author: CMcManamon <66437184+CMcManamon@users.noreply.github.com>
+Date:   Sat Oct 29 16:35:31 2022 -0700
+
+    Separate data fetch logic from components
+    
+    Create a custom hook useDataFetcher to fetch data from API.
+    Move logic out of App.handleFetch to useDataFetcher.
+    Method handleFetch used by header form updates server/faction state for App. Changes to server/faction trigger refresh to fetch data.
+
+[33mcommit 05dd2f91e30b09246b34d68313c85b0342f42754[m
+Author: CMcManamon <66437184+CMcManamon@users.noreply.github.com>
+Date:   Fri Oct 28 10:06:53 2022 -0700
+
+    Change Currency class properties
+    
+    Currency class now stores total copper value instead of gold-silver-copper breakdown.
+
+[33mcommit a8b137a3d4a2ecc46524af9694702b43ca17d473[m
+Author: CMcManamon <66437184+CMcManamon@users.noreply.github.com>
+Date:   Thu Oct 27 11:57:41 2022 -0700
+
+    Perform scan on Btn Click
+    
+    Move market scanner logic to App level, passing props to marketTable.
+    Pass method from App to Header to send form options up to parent.
+
+[33mcommit 4680238fa69affee455d9a484e49c6dd14670ddc[m
+Author: CMcManamon <66437184+CMcManamon@users.noreply.github.com>
+Date:   Fri Sep 30 16:43:42 2022 -0700
+
+    Create react components MarketTable and MarketRow
+
+[33mcommit db30869c1cb8b850bc79a23bcca24094080868b2[m
+Author: CMcManamon <66437184+CMcManamon@users.noreply.github.com>
+Date:   Fri Sep 30 16:14:51 2022 -0700
+
+    Convert project to React project
+
+[33mcommit dc8248a992cc31565f60900b3f6a284268506a91[m
+Author: CMcManamon <66437184+CMcManamon@users.noreply.github.com>
+Date:   Thu Sep 29 21:51:09 2022 -0700
+
+    Let PriceChecker.fetchPrice() produce test values
+
+[33mcommit 4a9dd77cbbdc14182eb3b7b03d0ae4c84255bfa6[m
+Auth
