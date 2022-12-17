@@ -7,7 +7,7 @@ const ServerList = (props) => {
   const [defaultServer, setDefaultServer] = useState(() => {
     // get stored server value
     const savedServer = JSON.parse(localStorage.getItem("server"));
-    return savedServer || "benediction";
+    return savedServer || "benediction"; // default
   });
 
   let serversList = [];
@@ -26,14 +26,17 @@ const ServerList = (props) => {
   };
 
   return (
-    <select
-      name={name}
-      id={id}
-      defaultValue={defaultServer}
-      onChange={onServerChange}
-    >
-      {serversList}
-    </select>
+    <div>
+      <label htmlFor={name}>Server: </label>
+      <select
+        name={name}
+        id={id}
+        defaultValue={defaultServer}
+        onChange={onServerChange}
+      >
+        {serversList}
+      </select>
+    </div>
   );
 };
 export default ServerList;

@@ -95,3 +95,11 @@
   text-align: center;
   margin: 0 auto;
 }
+
+.label-alliance {
+  color: #67bcff;
+}
+
+.label-horde {
+  color: red;
+}
