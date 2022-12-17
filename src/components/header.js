@@ -29,7 +29,6 @@ const Header = (props) => {
 
   const handleFeeChanged = (event) => {
     let value = event.target.checked;
-    console.log(value);
     localStorage.setItem("feeCheck", JSON.stringify(value));
     setFeeCheck(value);
     checkFeeHandler(value);
