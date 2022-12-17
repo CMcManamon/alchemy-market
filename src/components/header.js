@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import ServerList from "./serverList";
+import FactionButtons from "./factionButtons";
 
 const Header = (props) => {
   const clickHandler = props.fetchHandler;
@@ -8,7 +9,17 @@ const Header = (props) => {
 
   const DEFAULT_PROC_CHANCE = 15;
 
-  const [procChance, setProcChance] = useState(DEFAULT_PROC_CHANCE);
+  const [procChance, setProcChance] = useState(() => {
+    let storedProcChance = JSON.parse(localStorage.getItem("procRate"));
+    if (storedProcChance === null) return DEFAULT_PROC_CHANCE;
+    return storedProcChance * 5;
+  });
+
+  const [feeCheck, setFeeCheck] = useState(() => {
+    let storedFeeCheck = JSON.parse(localStorage.getItem("feeCheck"));
+    if (storedFeeCheck === null) return true;
+    return storedFeeCheck;
+  });
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -17,11 +28,15 @@ const Header = (props) => {
   };
 
   const handleFeeChanged = (event) => {
-    checkFeeHandler(event.target.checked);
+    let value = event.target.checked;
+    localStorage.setItem("feeCheck", JSON.stringify(value));
+    setFeeCheck(value);
+    checkFeeHandler(value);
   };
 
   const handleProcRateChanged = (event) => {
-    let currValue = event.target.value;
+    let currValue = event.target.value; // value 0 to 6 (0%, 5%, ..., 30%)
+    localStorage.setItem("procRate", JSON.stringify(currValue));
     setProcChance(currValue * 5);
     slideProcRateHandler(currValue * 0.05); // 5% per tick
   };
@@ -36,26 +51,13 @@ const Header = (props) => {
           <tbody>
             <tr>
               <td className="server-faction-scan-container">
-                <label htmlFor="server-select">Server: </label>
                 <ServerList
                   name="server-select"
                   id="server-select"
-                  defaultServer="benediction"
                 ></ServerList>
 
-                <br />
-                <label htmlFor="faction">Faction: </label>
-                <input
-                  type="radio"
-                  id="alliance"
-                  value="alliance"
-                  name="faction"
-                  defaultChecked
-                />
-                <label htmlFor="alliance">Alliance</label>
-                <input type="radio" id="horde" value="horde" name="faction" />
-                <label htmlFor="horde">Horde</label>
-                <br />
+                <FactionButtons />
+
                 <div className="scan-button-container">
                   <button>Scan</button>
                 </div>
@@ -66,7 +68,7 @@ const Header = (props) => {
                   type="checkbox"
                   id="ah-fees"
                   name="ah-fees"
-                  defaultChecked
+                  checked={feeCheck}
                   onChange={handleFeeChanged}
                 />
 
@@ -77,10 +79,11 @@ const Header = (props) => {
                   <br />
                   <input
                     type="range"
+                    id="procSlider"
                     name="procSlider"
                     min="0"
                     max="6"
-                    defaultValue="3"
+                    defaultValue={procChance / 5}
                     onChange={handleProcRateChanged}
                   />
                   <br />
