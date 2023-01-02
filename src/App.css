@@ -1,10 +1,13 @@
 .App {
+  height: 100%;
+  width: 100%;
   text-align: center;
 }
 
-.App-header {
+body {
   background-color: #282c34;
-  min-height: 100vh;
+}
+.App-header {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -128,4 +131,27 @@
 
 .tooltip:hover .tooltiptext {
   visibility: visible;
+}
+
+.gitHubLogo {
+  height: 20px;
+  width: 20px;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: #282c34;
+  font-size: 1em;
+  color: white;
+  width: 100%;
+}
+
+a:visited {
+  color: white;
+}
+
+footer hr {
+  border: 1px solid white;
 }
