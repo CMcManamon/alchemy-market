@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./App.css";
 import Header from "./components/header";
+import Footer from "./components/footer";
 import MarketTable from "./components/marketTable";
 import useDataFetcher from "./hooks/useDataFetcher";
 import { Flasks } from "./data/flasks";
@@ -52,6 +53,7 @@ function App() {
           procRate={procRate}
         />
       </header>
+      <Footer />
     </div>
   );
 }
