@@ -27,6 +27,8 @@ const MarketTable = (props) => {
                 Est. Value*
                 <span className="tooltiptext">
                   Evaluates proc chance and fees
+                  <br />
+                  Flasks produce 2 items naturally
                 </span>
               </div>
             </th>
