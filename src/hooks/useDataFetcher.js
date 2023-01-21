@@ -76,7 +76,7 @@ const useDataFetcher = (server, faction, itemGroup) => {
       } catch (error) {
         console.error("Error fetching data: ", error);
         if (error.status >= 500 && error.status < 600)
-          setError("There was a problem connecting to the server.");
+          setError("There was a problem connecting to NexusHub.co.");
         else setError("There was a problem fetching the data.");
       }
       if (error === null && items.length > 0)
