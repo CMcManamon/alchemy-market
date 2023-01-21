@@ -10,7 +10,7 @@ const NEXUS_API_CRAFTING = "https://api.nexushub.co/wow-classic/v1/crafting/";
 const useDataFetcher = (server, faction, itemGroup) => {
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(false);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     if (server === null || faction === null) return setItems([]);
@@ -23,8 +23,6 @@ const useDataFetcher = (server, faction, itemGroup) => {
     }
 
     // No recent local data, so clear the list and start scanning
-    setItems([]);
-    setLoading(true);
 
     /*
      * Fetch data from API for given server, faction, and item id
@@ -44,12 +42,9 @@ const useDataFetcher = (server, faction, itemGroup) => {
           return data;
         })
         .catch((error) => {
-          console.error("Error fetching data: ", error);
-          setError(error);
+          throw error;
         })
-        .finally(() => {
-          setLoading(false);
-        });
+        .finally(() => {});
     }
 
     /*
@@ -57,25 +52,36 @@ const useDataFetcher = (server, faction, itemGroup) => {
      *   and then merge them into a single object with helper function reduceData()
      */
     async function getData() {
-      for (let item in itemGroup) {
-        const fetchedItem = await getFromNexus(
-          NEXUS_API_ITEMS,
-          server,
-          faction,
-          itemGroup[item]
-        );
-        const fetchedCraft = await getFromNexus(
-          NEXUS_API_CRAFTING,
-          server,
-          faction,
-          itemGroup[item]
-        );
-        if (fetchedItem != null && fetchedCraft != null) {
-          let combinedObj = reduceData(fetchedItem, fetchedCraft);
-          setItems((prevItems) => [...prevItems, combinedObj]);
+      setItems([]);
+      setLoading(true);
+      try {
+        for (let item in itemGroup) {
+          const fetchedItem = await getFromNexus(
+            NEXUS_API_ITEMS,
+            server,
+            faction,
+            itemGroup[item]
+          );
+          const fetchedCraft = await getFromNexus(
+            NEXUS_API_CRAFTING,
+            server,
+            faction,
+            itemGroup[item]
+          );
+          if (fetchedItem != null && fetchedCraft != null) {
+            let combinedObj = reduceData(fetchedItem, fetchedCraft);
+            setItems((prevItems) => [...prevItems, combinedObj]);
+          }
         }
+      } catch (error) {
+        console.error("Error fetching data: ", error);
+        if (error.status >= 500 && error.status < 600)
+          setError("There was a problem connecting to the server.");
+        else setError("There was a problem fetching the data.");
       }
-      storeToLocal(server, faction, items);
+      if (error === null && items.length > 0)
+        storeToLocal(server, faction, items);
+      setLoading(false);
     }
     getData();
   }, [server, faction, itemGroup]);
