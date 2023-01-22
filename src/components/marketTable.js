@@ -4,7 +4,11 @@ import MarketRow from "./marketRow";
 const MarketTable = (props) => {
   const { items, loading, error, fee, procRate } = props;
   if (error != null) return error;
-  let loadHeader = loading === true ? "Retrieving data..." : "";
+  let loadHeader = (
+    <div className="loadHeader">
+      {loading === true ? "Retrieving data..." : ""}
+    </div>
+  );
   if (items === undefined || items.length === 0) return loadHeader;
 
   let rows = [];
@@ -16,7 +20,7 @@ const MarketTable = (props) => {
   }
   return (
     <div className="market-container">
-      <div className="loadHeader">{loadHeader}</div>
+      {loadHeader}
       <table className="market-table">
         <thead>
           <tr>

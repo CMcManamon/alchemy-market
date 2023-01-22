@@ -9,6 +9,7 @@ const dataIsRecent = (date) => {
 
 // Given the server, faction, and object, save the data and the current timestamp
 export const storeToLocal = (server, faction, obj) => {
+  if (!localStorage) return null;
   let timestamp = Date.now();
   let key = server + "-" + faction;
   let value = { date: timestamp, itemData: obj };
@@ -21,8 +22,7 @@ export const getDataFromLocal = (server, faction) => {
   let storedData = localStorage.getItem(server + "-" + faction);
   try {
     storedData = JSON.parse(storedData);
-    if (dataIsRecent(storedData.date)) return storedData.itemData;
-    return null;
+    return dataIsRecent(storedData.date) ? storedData.itemData : null;
   } catch {
     return null;
   }
