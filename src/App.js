@@ -4,6 +4,7 @@ import Header from "./components/header";
 import Footer from "./components/footer";
 import MarketTable from "./components/marketTable";
 import useDataFetcher from "./hooks/useDataFetcher";
+import { alchemyComparator } from "./utils/reduceData";
 import { Flasks } from "./data/flasks";
 import { Elixirs } from "./data/elixirs";
 import { Potions } from "./data/potions";
@@ -17,7 +18,7 @@ function App() {
 
   // Fetch data for Consumeables
   const flaskData = useDataFetcher(server, faction, allConsumeables);
-  const flasks = flaskData.items;
+  const flasks = flaskData.items.sort(alchemyComparator(fee, procRate));
   const loading = flaskData.loading;
   const error = flaskData.error;
 

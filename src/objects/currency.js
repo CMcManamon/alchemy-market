@@ -7,20 +7,30 @@ class Currency {
   // 1 gold = 100 silver
   // Only gold value is displayed with a negative sign
   getGold() {
-    return Math.floor(this.value / 10000);
+    return Math.floor(Math.abs(this.value) / 10000);
   }
 
   getSilver() {
-    return Math.abs(Math.floor(this.value / 100) % 100);
+    return Math.floor(Math.abs(this.value) / 100) % 100;
   }
 
   getCopper() {
-    return Math.abs(this.value % 100);
+    return Math.abs(this.value) % 100;
+  }
+
+  getSign() {
+    return this.value < 0 ? "-" : "";
   }
 
   getString() {
     return (
-      this.getGold() + "g " + this.getSilver() + "s " + this.getCopper() + "c"
+      this.getSign() +
+      this.getGold() +
+      "g " +
+      this.getSilver() +
+      "s " +
+      this.getCopper() +
+      "c"
     );
   }
 
