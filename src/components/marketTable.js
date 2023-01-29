@@ -3,9 +3,13 @@ import MarketRow from "./marketRow";
 
 const MarketTable = (props) => {
   const { items, loading, error, fee, procRate } = props;
-  if (items === undefined || items.length === 0) return "";
-  if (loading) return "Loading...";
-  if (error) return "Error!";
+  if (error != null) return error;
+  let loadHeader = (
+    <div className="loadHeader">
+      {loading === true ? "Retrieving data..." : ""}
+    </div>
+  );
+  if (items === undefined || items.length === 0) return loadHeader;
 
   let rows = [];
   for (let i in items) {
@@ -16,6 +20,7 @@ const MarketTable = (props) => {
   }
   return (
     <div className="market-container">
+      {loadHeader}
       <table className="market-table">
         <thead>
           <tr>
@@ -27,6 +32,8 @@ const MarketTable = (props) => {
                 Est. Value*
                 <span className="tooltiptext">
                   Evaluates proc chance and fees
+                  <br />
+                  Flasks produce 2 items naturally
                 </span>
               </div>
             </th>

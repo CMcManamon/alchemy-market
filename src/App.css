@@ -139,7 +139,7 @@ body {
 }
 
 footer {
-  position: absolute;
+  position: relative;
   bottom: 0;
   left: 0;
   background-color: #282c34;
@@ -154,4 +154,8 @@ a:visited {
 
 footer hr {
   border: 1px solid white;
+}
+
+.loadHeader {
+  height: 1em;
 }

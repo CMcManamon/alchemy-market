@@ -51,100 +51,16 @@ function defaultData(itemData) {
 
   return item;
 }
-/*
-var testObjItem = {
-  server: "benediction-alliance",
-  itemId: 46376,
-  name: "Flask of the Frost Wyrm",
-  uniqueName: "flask-of-the-frost-wyrm",
-  icon: "https://wow.zamimg.com/images/wow/icons/large/inv_alchemy_endlessflask_04.jpg",
-  tags: ["Common", "Consumable"],
-  requiredLevel: 75,
-  itemLevel: 85,
-  sellPrice: 2500,
-  vendorPrice: null,
-  tooltip: [
-    { label: "Flask of the Frost Wyrm", format: "Common" },
-    { label: "Item Level 85", format: "Misc" },
-    { label: "Requires Level 75" },
-    {
-      label:
-        "Use: Increases spell power by 125 for 1 hour. Counts as both a Battle and Guardian elixir.  This effect persists through death. (3 Sec Cooldown)",
-      format: "Uncommon",
-    },
-    { label: "Max Stack: 20" },
-    { label: "Sell Price:" },
-  ],
-  itemLink: "|cffffffff|Hitem:46376::::::::::0|h[Flask of the Frost Wyrm]|h|r",
-  stats: {
-    lastUpdated: "2022-10-26T17:27:49.000Z",
-    current: {
-      historicalValue: 143643,
-      marketValue: 87458,
-      minBuyout: 81999,
-      numAuctions: 2470,
-      quantity: 8699,
-    },
-    previous: {
-      marketValue: 87464,
-      minBuyout: 81998,
-      numAuctions: 2319,
-      quantity: 8757,
-      historicalValue: 148711,
-    },
-  },
-};
-var testObjCraft = {
-  itemId: 46376,
-  name: "Flask of the Frost Wyrm",
-  uniqueName: "flask-of-the-frost-wyrm",
-  slug: "benediction-alliance",
-  createdBy: [
-    {
-      amount: [2, 2],
-      requiredSkill: 435,
-      category: "Alchemy",
-      reagents: [
-        {
-          itemId: 36906,
-          amount: 5,
-          name: "Icethorn",
-          uniqueName: "icethorn",
-          icon: "https://wow.zamimg.com/images/wow/icons/large/inv_misc_herb_icethorn.jpg",
-          marketValue: 13505,
-          vendorPrice: null,
-        },
-        {
-          itemId: 36905,
-          amount: 5,
-          name: "Lichbloom",
-          uniqueName: "lichbloom",
-          icon: "https://wow.zamimg.com/images/wow/icons/large/inv_misc_herb_whispervine.jpg",
-          marketValue: 15067,
-          vendorPrice: null,
-        },
-        {
-          itemId: 36908,
-          amount: 1,
-          name: "Frost Lotus",
-          uniqueName: "frost-lotus",
-          icon: "https://wow.zamimg.com/images/wow/icons/large/inv_misc_herb_frostlotus.jpg",
-          marketValue: 11432,
-          vendorPrice: null,
-        },
-        {
-          itemId: 40411,
-          amount: 1,
-          name: "Enchanted Vial",
-          uniqueName: "enchanted-vial",
-          icon: "https://wow.zamimg.com/images/wow/icons/large/inv_alchemy_enchantedvial.jpg",
-          marketValue: 18700,
-          vendorPrice: 9943,
-        },
-      ],
-      recipes: [],
-    },
-  ],
-  reagentFor: [],
-};
-*/
+
+export function alchemyComparator(fee, procRate) {
+  return function (a, b) {
+    if (a.marketValue === null && b.marketValue === null) return 0;
+    if (a.marketValue === null) return 1; // b > a if a is null
+    if (b.marketValue === null) return -1;
+
+    let feeVal = fee ? 0.95 : 1;
+    let aValue = a.marketValue * feeVal * (a.amount + procRate) - a.craftCost;
+    let bValue = b.marketValue * feeVal * (b.amount + procRate) - b.craftCost;
+    return bValue - aValue;
+  };
+}
