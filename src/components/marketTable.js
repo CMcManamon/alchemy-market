@@ -33,7 +33,7 @@ const MarketTable = (props) => {
                 <span className="tooltiptext">
                   Evaluates proc chance and fees
                   <br />
-                  Flasks produce 2 items naturally
+                  Most flasks produce qty 2
                 </span>
               </div>
             </th>
