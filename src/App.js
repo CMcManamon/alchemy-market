@@ -44,6 +44,7 @@ function App() {
           fetchHandler={handleFetch}
           feeHandler={handleFee}
           procRateHandler={handleProcRate}
+          isLoading={loading}
         />
         {/* ToDo: component containing multiple market tables*/}
         <MarketTable

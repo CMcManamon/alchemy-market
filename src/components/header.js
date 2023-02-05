@@ -6,6 +6,7 @@ const Header = (props) => {
   const clickHandler = props.fetchHandler;
   const checkFeeHandler = props.feeHandler;
   const slideProcRateHandler = props.procRateHandler;
+  const isLoading = props.isLoading;
 
   const DEFAULT_PROC_CHANCE = 15;
 
@@ -59,7 +60,7 @@ const Header = (props) => {
                 <FactionButtons />
 
                 <div className="scan-button-container">
-                  <button>Scan</button>
+                  <button disabled={isLoading}>Scan</button>
                 </div>
               </td>
               <td className="fees-checkbox">
