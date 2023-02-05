@@ -4,12 +4,14 @@ import MarketRow from "./marketRow";
 const MarketTable = (props) => {
   const { server, faction, items, loading, error, fee, procRate } = props;
 
-  let serverFactionLabel =
-    server.charAt(0).toUpperCase() +
-    server.slice(1) +
-    " - " +
-    faction.charAt(0).toUpperCase() +
-    faction.slice(1);
+  let serverFactionLabel = "";
+  if (server !== null && faction != null)
+    serverFactionLabel =
+      server.charAt(0).toUpperCase() +
+      server.slice(1) +
+      " - " +
+      faction.charAt(0).toUpperCase() +
+      faction.slice(1);
   if (error != null) return error;
   let loadHeader = (
     <div className="loadHeader">
