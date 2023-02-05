@@ -58,6 +58,11 @@ footer hr {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 
+.market-table caption {
+  font-size: 1.25em;
+  padding-bottom: 4px;
+}
+
 .market-table thead tr {
   background-color: #15171f;
   text-align: left;

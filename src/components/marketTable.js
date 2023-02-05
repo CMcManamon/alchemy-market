@@ -2,7 +2,14 @@ import React from "react";
 import MarketRow from "./marketRow";
 
 const MarketTable = (props) => {
-  const { items, loading, error, fee, procRate } = props;
+  const { server, faction, items, loading, error, fee, procRate } = props;
+
+  let serverFactionLabel =
+    server.charAt(0).toUpperCase() +
+    server.slice(1) +
+    " - " +
+    faction.charAt(0).toUpperCase() +
+    faction.slice(1);
   if (error != null) return error;
   let loadHeader = (
     <div className="loadHeader">
@@ -22,6 +29,7 @@ const MarketTable = (props) => {
     <div className="market-container">
       {loadHeader}
       <table className="market-table">
+        <caption>{serverFactionLabel}</caption>
         <thead>
           <tr>
             <th>Item</th>

@@ -48,6 +48,8 @@ function App() {
         />
         {/* ToDo: component containing multiple market tables*/}
         <MarketTable
+          server={server}
+          faction={faction}
           items={flasks}
           loading={loading}
           error={error}
